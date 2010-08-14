@@ -1,0 +1,3 @@
+server: true
+safe: true
+pygments: true
