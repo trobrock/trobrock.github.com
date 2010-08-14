@@ -1,25 +1,61 @@
 <!doctype html>
 <html>
   <head>
-    <title>{{ title }}</title>
+    <title>{{ page.title }}</title>
     
-    <link rel="stylesheet" href="../css/960gs/reset.css" type="text/css" media="screen" charset="utf-8">
-    <link rel="stylesheet" href="../css/960gs/text.css" type="text/css" media="screen" charset="utf-8">
-    <link rel="stylesheet" href="../css/960gs/960.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
     
+    <link rel="stylesheet" href="../css/960gs/reset.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="../css/960gs/text.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="../css/960gs/960.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="../css/application.css" type="text/css" media="screen" charset="utf-8">
   </head>
   <body>
     <div class="container_12">
-      <header></header>
-      <nav></nav>
+      <header class="grid_12">
+        <a href="http://trobrock.com/" style="border: none;" alt="Home"><image src="img/logo.png" /></a>
+      </header>
+      <nav class="grid_12">
+        <image src="img/nav_buttons.png" usemap="#nav-buttons_map" />
+        <map id="nav-buttons_map" name="nav-buttons_map">
+          <area shape="rect" coords="1,0,119,48" href="http://trobrock.com/" alt="Home" />
+          <area shape="rect" coords="120,0,317,48" href="http://trobrock.com/about" alt="About Me" />
+          <area shape="rect" coords="319,0,482,48" href="http://trobrock.com/gallery" alt="Gallery" />
+          <area shape="rect" coords="485,0,657,48" href="http://trobrock.com/contact" alt="Contact" />
+          <area shape="rect" coords="660,0,787,48" href="http://blog.trobrock.com" alt="Blog" />
+          <area shape="rect" coords="790,0,935,48" href="http://trobrock.com/lab" alt="The Lab" />
+        </map>
+      </nav>
       
-      <section>
-        {{ content }}
+      <section class="grid_12">
+        {% for post in site.posts %}
+          {% include post.html %}
+        {% endfor %}
       </section>
       
-      <footer>
-        <span>Copyright trobrock development</span>
+      <footer class="grid_12">
+        <div class="grid_4 alpha col">
+          <ul>
+            <li><a href="http://trobrock.com/">Home</a></li>
+            <li><a href="http://trobrock.com/about">About Me</a></li>
+            <li><a href="http://trobrock.com/gallery">Gallery</a></li>
+            <li><a href="http://trobrock.com/contact">Contact</a></li>
+            <li><a href="http://blog.trobrock.com">Blog</a></li>
+            <li><a href="http://trobrock.com/lab">The Lab</a></li>
+          </ul>
+        </div>
+        <div class="grid_4 col">
+          &nbsp;
+        </div>
+        <div class="grid_4 omega col">
+          <ul>
+            <li><a href="http://twitter.com/trobrock" target="_blank">Twitter</a></li>
+            <li><a href="http://www.linkedin.com/in/trobrock" target="_blank">LinkedIn</a></li>
+          </ul>
+        </div>
       </footer>
+      <span class="grid_12" style="text-align:center;font-size:10px">&copy; trobrock development 2010</span>
     </div>
     
     <script src="../js/mootools-1.2.4-core.js" type="text/javascript" charset="utf-8"></script>

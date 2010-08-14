@@ -1,0 +1,58 @@
+body {
+  background: black url('../img/background.png') no-repeat top center;
+  font-family: Arial, Helvetica, Georgia;
+  color: #dddddd;
+  font-size: 14px;
+}
+
+p {
+  margin-top: 10px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a:hover {
+  border-bottom: 1px solid white;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px dotted white;
+}
+
+header {
+  margin-top: 50px;
+}
+
+nav {
+  margin-top: 25px;
+}
+
+section {
+  margin-top: 10px;
+  min-height: 200px;
+}
+
+footer {
+  background: black url('../img/footer-sep.png') no-repeat;
+  height: 200px;
+  font-size: 12px;
+  color: #777;
+  padding-top: 10px;
+}
+
+footer .col {
+  text-align: center;
+}
+
+footer a:hover {
+  border-bottom: 1px solid #777;
+}
+
+footer a {
+  border-bottom: none;
+  color: #777;
+}
