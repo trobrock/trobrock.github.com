@@ -5,9 +5,15 @@ body {
   font-size: 14px;
 }
 
+h2 {
+  font-weight: normal;
+  margin: 0; }
+
+time {
+  font-size: 12px; }
+
 p {
-  margin-top: 10px;
-}
+  margin: 10px 0 0 0; }
 
 ul {
   list-style-type: none;

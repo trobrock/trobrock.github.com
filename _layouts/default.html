@@ -6,18 +6,18 @@
     <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
     
-    <link rel="stylesheet" href="../css/960gs/reset.css" type="text/css" media="screen" charset="utf-8" />
-    <link rel="stylesheet" href="../css/960gs/text.css" type="text/css" media="screen" charset="utf-8" />
-    <link rel="stylesheet" href="../css/960gs/960.css" type="text/css" media="screen" charset="utf-8" />
-    <link rel="stylesheet" href="../css/application.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="/css/960gs/reset.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="/css/960gs/text.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="/css/960gs/960.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="/css/application.css" type="text/css" media="screen" charset="utf-8">
   </head>
   <body>
     <div class="container_12">
       <header class="grid_12">
-        <a href="http://trobrock.com/" style="border: none;" alt="Home"><image src="img/logo.png" /></a>
+        <a href="http://trobrock.com/" style="border: none;" alt="Home"><image src="/img/logo.png" /></a>
       </header>
       <nav class="grid_12">
-        <image src="img/nav_buttons.png" usemap="#nav-buttons_map" />
+        <image src="/img/nav_buttons.png" usemap="#nav-buttons_map" />
         <map id="nav-buttons_map" name="nav-buttons_map">
           <area shape="rect" coords="1,0,119,48" href="http://trobrock.com/" alt="Home" />
           <area shape="rect" coords="120,0,317,48" href="http://trobrock.com/about" alt="About Me" />
@@ -29,9 +29,7 @@
       </nav>
       
       <section class="grid_12">
-        {% for post in site.posts %}
-          {% include post.html %}
-        {% endfor %}
+        {{ content }}
       </section>
       
       <footer class="grid_12">
@@ -58,7 +56,7 @@
       <span class="grid_12" style="text-align:center;font-size:10px">&copy; trobrock development 2010</span>
     </div>
     
-    <script src="../js/mootools-1.2.4-core.js" type="text/javascript" charset="utf-8"></script>
-    <script src="../js/mootools-1.2.4.4-more.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/mootools-1.2.4-core.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/mootools-1.2.4.4-more.js" type="text/javascript" charset="utf-8"></script>
   </body>
 </html>
