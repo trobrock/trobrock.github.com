@@ -28,6 +28,10 @@ ul {
 a {
   color: black; }
 
+.highlight {
+  background: #eee;
+  margin-top: 15px; }
+
 header {
   margin-top: 50px;
   font-family: 'Bitstream Vera Sans Mono', 'Courier', monospace; }
