@@ -4,7 +4,7 @@ title: Heroku and Mongoid
 date: 2011-11-11
 ---
 
-I wnted to play around with Heroku a bit the other day since I didn't feel like spinning up a new server at Rackspace to hack on a new idea I had. Like the last time I messed around with Heroku I ran into headaches with Postgres, I have never had a pleasant experience with Postgres. I did notice that in the Heroku addons MongoHQ was listed, and if you haven't heard of them they are a hosted Mongo DB service. I am a big fan of the Rails 3.1, Devise, Omniauth, Mongoid stack. So I began my journey setting this app up.
+I wanted to play around with Heroku a bit the other day since I didn't feel like spinning up a new server at Rackspace to hack on a new idea I had. Like the last time I messed around with Heroku I ran into headaches with Postgres, I have never had a pleasant experience with Postgres. I did notice that in the Heroku addons MongoHQ was listed, and if you haven't heard of them they are a hosted Mongo DB service. I am a big fan of the Rails 3.1, Devise, Omniauth, Mongoid stack. So I began my journey setting this app up.
 
 ### Heroku docs
 
@@ -17,10 +17,10 @@ When I got into actually configuring Mongoid to work with MongoHQ and Heroku I d
 As I was writing this article I looked a bit further and on v2.3 on Mongoid they support the uri option in the mongoid.yml file, so then the only trick left is to find the correct user name and password to use to connect to the database. To find this I ran
 
 ```
-  % heroku run console
-  Running console attached to terminal... up, run.8
-  Loading production environment (Rails 3.1.1)
-  irb(main):001:0> puts ENV.inspect
+    % heroku run console
+    Running console attached to terminal... up, run.8
+    Loading production environment (Rails 3.1.1)
+    irb(main):001:0> puts ENV.inspect
 ```
 
 Then you should see something like this in the hash and you can grab the username and password from that: `"MONGOHQ_URL"=>"mongodb://heroku:23sl54a8e892ksldhjf8jl34mrlnsf8j@staff.mongohq.com:10053/app8849273"`
