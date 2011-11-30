@@ -11,7 +11,7 @@ Right now there isn't really a clear workflow for doing this, so I found somethi
 There are three tools I use in this workflow.
 
 * Git
-* [Hub](https://github.com/defunkt/hub) (but I am using my fork so that pull requests fully work [here](httsp://github.com/trobrock/hub)) *EDIT* No need for my fork anymore, the fix for the pull-request command was added to the main repo.
+* [Hub](https://github.com/defunkt/hub) (but I am using my fork so that pull requests fully work [here](httsp://github.com/trobrock/hub)) **EDIT** No need for my fork anymore, the fix for the pull-request command was added to the main repo.
 * zsh
 
 Git is just our version control system. Hub is a wrapper for git that adds a ton of integration with [Github](https://github.com) including forking and pull requests. zsh is my shell of choice, all it is needed for here is a function I wrote that could be easily ported to bash.
