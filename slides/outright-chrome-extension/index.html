@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Outright Chrome Extension</title>
+
+    <meta name="author" content="Trae Robrock">
+    <meta name="viewport" content="width=1024, user-scalable=no">
+
+    <!-- Core and extension CSS files -->
+    <link rel="stylesheet" href="/js/deckjs/core/deck.core.css">
+    <link rel="stylesheet" href="/js/deckjs/extensions/navigation/deck.navigation.css">
+    <link rel="stylesheet" href="/js/deckjs/extensions/status/deck.status.css">
+    <link rel="stylesheet" href="/js/deckjs/extensions/hash/deck.hash.css">
+
+    <!-- Theme CSS files (menu swaps these out) -->
+    <link rel="stylesheet" id="style-theme-link" href="/css/deckjs/themes/style/neon.css">
+    <link rel="stylesheet" id="transition-theme-link" href="/css/deckjs/themes/transition/horizontal-slide.css">
+
+    <script src="/js/deckjs/modernizr.custom.js"></script>
+  </head>
+
+  <body class="deck-container">
+    <section class="slide" id="title">
+      <h1>Outright Chrome Extension</h1>
+    </section>
+
+    <section class="slide" id="what-is-it">
+      <h2>What is it?</h2>
+      <ul style="list-style-type: none;">
+        <li class="slide" id="what-is-it-image">
+          <img src="chrome-extension.png" />
+        </li>
+      </ul>
+      <ul>
+        <li class="slide" id="what-is-it-categorize">
+          <p>Fast, easy access to categorize your transactions in Outright</p>
+        </li>
+        <li class="slide" id="what-is-it-engagement">
+          <p>Make Outright a part of your daily experience</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="slide" id="why">
+      <h2>Why?</h2>
+      <ul>
+        <li class="slide" id="why-dau">
+          <p>Increase MAU and DAU</p>
+        </li>
+        <li class="slide" id="why-more-opportunities">
+          <p>More opportunities to interact with our customers</p>
+        </li>
+        <li class="slide" id="why-more-latest-tech">
+          <p>Making Chrome a more appealing experience could help move our users to newer browsers allowing us to use more advanced technologies in the product</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="slide" id="whats-left">
+      <h2>Whats left?</h2>
+      <ul>
+        <li class="slide" id="whats-left-bugs">
+          <p>Fixing bugs</p>
+        </li>
+        <li class="slide" id="whats-left-analytics">
+          <p>Setting up tracking to see the impact</p>
+        </li>
+        <li class="slide" id="whats-left-testing">
+          <p>Allowing users to test</p>
+        </li>
+        <li class="slide" id="whats-left-features">
+          <p>Make it awesome and work for everyone</p>
+        </li>
+      </ul>
+    </section>
+
+    <p class="deck-status">
+      <span class="deck-status-current"></span>
+      /
+      <span class="deck-status-total"></span>
+    </p>
+
+    <!-- Grab CDN jQuery, with a protocol relative URL; fall back to local if offline -->
+    <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/js/deckjs/jquery-1.7.min.js"><\/script>')</script>
+
+    <!-- Deck Core and extensions -->
+    <script src="/js/deckjs/core/deck.core.js"></script>
+    <script src="/js/deckjs/extensions/hash/deck.hash.js"></script>
+    <script src="/js/deckjs/extensions/status/deck.status.js"></script>
+    <script src="/js/deckjs/extensions/navigation/deck.navigation.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $.deck('.slide');
+      });      
+    </script>
+  </body>
+</html>
