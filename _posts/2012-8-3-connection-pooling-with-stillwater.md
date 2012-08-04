@@ -10,7 +10,7 @@ Stillwater is a simple connection pooling gem that enables you to pool connectio
 
 ## Why
 
-Here at Outright we were wanting to have our queue servers be intelligent about server failures in our aggregation system, it would also be nice if the connections to that aggregation system were load balanced. After looking around for a bit we realized there wasn't really anything out there that did what we wanted. So a couple of hours with @julio (https://github.com/julio) and we ended up with Stillwater (https://github.com/trobrock/stillwater). Now you can load balance and handle failover between any sort of connection that you can create in a ruby block.
+Here at Outright we were wanting to have our queue servers be intelligent about server failures in our aggregation system, it would also be nice if the connections to that aggregation system were load balanced. After looking around for a bit we realized there wasn't really anything out there that did what we wanted. So a couple of hours with [@julio](https://github.com/julio) and we ended up with [Stillwater](https://github.com/trobrock/stillwater). Now you can load balance and handle failover between any sort of connection that you can create in a ruby block.
 
 ## Usage
 
