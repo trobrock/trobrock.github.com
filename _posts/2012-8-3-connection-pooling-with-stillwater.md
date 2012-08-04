@@ -4,8 +4,6 @@ title: Connection pooling with Stillwater
 date: 2012-8-3
 ---
 
-# Connection pooling with Stillwater
-
 ## What is it
 
 Stillwater is a simple connection pooling gem that enables you to pool connections to multiple servers or any other Object you want.
@@ -20,7 +18,7 @@ The usage is pretty simple, install the gem as you would for any other project.
 
 Setup:
 
-```ruby
+{% highlight ruby %}
 # Instantiate the pool
 @pool = Stillwater::ConnectionPool.new
 
@@ -30,11 +28,11 @@ Setup:
 %q{ host1.com host2.com }.each do |host|
   pool.add { MyConnectionClass.new(host) }
 end
-```
+{% endhighlight %}
 
 Then connection pooiling with and without failover:
 
-```ruby
+{% highlight ruby %}
 # Basic connection handling
 pool.with_connection do |connection|
   # Do some stuff with your connection
@@ -47,4 +45,4 @@ end
 pool.retry_connection_from(ServerConnectionFailed) do |connection|
   # Do some stuff with your connection
 end
-```
+{% endhighlight %}
