@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>automate your life with sh</title>
+    <meta charset='utf-8' />
+    <meta content='width=1024, user-scalable=no' name='viewport' />
+    <!-- deck.js's core css -->
+    <link href="deck.js/core/deck.core.css" rel="stylesheet" type="text/css"/>
+    <!-- deck.js extension CSS files -->
+    <link href="deck.js/extensions/codemirror/deck.codemirror.css" rel="stylesheet" type="text/css"/>
+    <link href="deck.js/extensions/goto/deck.goto.css" rel="stylesheet" type="text/css"/>
+    <link href="deck.js/extensions/hash/deck.hash.css" rel="stylesheet" type="text/css"/>
+    <link href="deck.js/extensions/menu/deck.menu.css" rel="stylesheet" type="text/css"/>
+    <link href="deck.js/extensions/navigation/deck.navigation.css" rel="stylesheet" type="text/css"/>
+    <link href="deck.js/extensions/scale/deck.scale.css" rel="stylesheet" type="text/css"/>
+    <link href="deck.js/extensions/status/deck.status.css" rel="stylesheet" type="text/css"/>
+    <!-- all css in the css dir: Keydown CSS, your custom CSS, and themes from deck.js -->
+    <link href="css/keydown.css" rel="stylesheet" type="text/css"/>
+    <link href="css/automate-your-life-with-sh.css" rel="stylesheet" type="text/css"/>
+    <link href="css/default.css" rel="stylesheet" type="text/css"/>
+    <link href="css/horizontal-slide.css" rel="stylesheet" type="text/css"/>
+    <link href="css/swiss.css" rel="stylesheet" type="text/css"/>
+    <!-- Modernizr (provided for legacy browsers) -->
+    <script src="deck.js/support/modernizr.custom.js" type="text/javascript"></script>
+  </head>
+  <body class='deck-container keydown'>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>automate your life with sh</h1>
+        
+        <p>#!/bin/sh</p>
+        
+        <h3>@trobrock</h3>
+        
+        <h3>trae@outright.com</h3>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>I love ruby</h1>
+        
+        <p>Really...
+        <textarea class='code' display='none' mode='ruby'>love_ruby unless crazy?</textarea>
+    
+        Who wouldn't?</p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>The Unix Way</h1>
+        
+        <blockquote><p>Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams, because that is a universal interface.</p></blockquote>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <p>The magical unicorns of sh...</p>
+        
+        <p><textarea class='code' display='none' mode='shell'># Rewrite the revision file to update cloudfront cache&#x000A;sed -i'.bak' 's/294729/294729TR/' REVISION&#x000A;&#x000A;# Print the 5min load average&#x000A;uptime | awk -F'load averages:' '{ print $2 }' | awk '{ print $2 }'&#x000A;&#x000A;# Clean out .orig files from current directory and children&#x000A;find ./**/*.orig | xargs rm</textarea>
+    </p>
+        
+        <p><img src="images/unicorns.jpg" alt="Unicorns" /></p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>sed</h1>
+        
+        <p>a powerful stream editor, and since everything in unix uses text streams as IO (remember?) this tool is very powerful.</p>
+        
+        <h2>Things I've used it for</h2>
+        
+        <p><textarea class='code' display='none' mode='shell'># Install a gem in all your rvm global gemsets&#x000A;rvm list | sed 's/=>//' | awk '/\[/{print $1}' | xargs -I '{}' rvm {}@global do gem install gem_name&#x000A;&#x000A;# Count lines in a log file matching a regex&#x000A;sed -n '/Internal error processing import_txns/{n;p;}' agg.log | sed 's/[0-9]\{14\}//' | sort |&#x000A;  uniq -c | sort -n&#x000A;&#x000A;# Rewrite the REVISION file to update cloudfront cache&#x000A;sed -i'.bak' 's/294729/294729TR/' REVISION</textarea>
+    </p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>awk</h1>
+        
+        <p>like grep, but by default uses more powerful regular expression and supports full scripting</p>
+        
+        <h2>Things I've used it for</h2>
+        
+        <p><textarea class='code' display='none' mode='shell'># watch every 10 seconds MySQL query ids and times that have been running longer than 60 seconds&#x000A;watch -n10 "mysql -uroot -e 'show processlist' | awk '/Query/{ print \$1 \" \" \$6}' |&#x000A;  grep -E '[0-9]+ ([6-9][0-9]|[0-9]{3,})'"&#x000A;&#x000A;# Kill MySQL queries that have been running for longer than 60 seconds&#x000A;mysql -uroot -e 'show processlist;' | grep -v 'root' | awk '/Query/i{ print $1 " " $6 }' |&#x000A;  grep -E '([0-9]+) ([6-9][0-9]|[0-9]{3,})' | awk '{print $1}' | xargs -I '{}' mysql -uroot -e 'kill {} ;'&#x000A;&#x000A;# Download production logs for a specific month&#x000A;./s3cmd ls s3://production-outright-com/logs/acc/production/ | awk '/2011-05-[0-9][0-9]/{print $4}' |&#x000A;  grep -v production_log | xargs -I '{}' ./s3cmd get '{}' ~/t/</textarea>
+    </p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>xargs</h1>
+        
+        <p>for those programs that dont take stdin, or need the argument to go in a non standard place</p>
+        
+        <h2>Things I've used it for</h2>
+        
+        <p>Just look above
+        <textarea class='code' display='none' mode='shell'># Install a gem in all your rvm global gemsets&#x000A;rvm list | sed 's/=>//' | awk '/\[/{print $1}' | xargs -I '{}' rvm {}@global do gem install gem_name&#x000A;&#x000A;# Kill MySQL queries that have been running for longer than 60 seconds&#x000A;mysql -uroot -e 'show processlist;' | grep -v 'root' | awk '/Query/i{ print $1 " " $6 }' |&#x000A;  grep -E '([0-9]+) ([6-9][0-9]|[0-9]{3,})' | awk '{print $1}' | xargs -I '{}' mysql -uroot -e 'kill {} ;'&#x000A;&#x000A;# Run all report tests&#x000A;find test/unit/outright/{base_report_test.rb,report/**/*.rb} |&#x000A;  xargs ruby -I"lib:test" "/Library/Ruby/Gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb"</textarea>
+    </p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>What are the downsides?</h1>
+        
+        <ul>
+        <li>No floating point math <code>ruby -e 'print $1.to_f + $2.to_f'</code></li>
+        <li>Slightly different syntax when using higher level programming functions (zsh vs. bash)</li>
+        </ul>
+        
+        
+        <p><img src="images/tux-facepalm.jpg" alt="Facepalm" /></p>
+        
+        <p>Stick to sh level code and things will work everywhere generally.</p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>Automate your life</h1>
+        
+        <ul>
+        <li>deploy alias [<a href="code/deploy.sh">code</a>]</li>
+        <li>ssh to server alias [<a href="code/ssh-server.sh">code</a>]</li>
+        </ul>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>Questions?</h1>
+        
+        <blockquote><p>http://blog.trobrock.com/slides/automate-your-life-with-sh/slides.html</p></blockquote>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <!-- deck.js navigation extension -->
+    <a class='deck-prev-link' href='#' title='Previous'>&#8592;</a>
+    <a class='deck-next-link' href='#' title='Next'>&#8594;</a>
+    <!-- deck.js hash extension -->
+    <a class='deck-permalink' href='.' title='Permalink to this slide'>#</a>
+    <!-- deck.js status extension -->
+    <p class='deck-status'>
+      <span class='deck-status-current'></span>
+      /
+      <span class='deck-status-total'></span>
+    </p>
+    <!-- jQuery & deck.js -->
+    <script src="deck.js/support/jquery.1.6.4.min.js" type="text/javascript"></script>
+    <script src="deck.js/core/deck.core.js" type="text/javascript"></script>
+    <!-- deck.js extension JS files -->
+    <script src="deck.js/extensions/codemirror/codemirror.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/codemirror/deck.codemirror.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/codemirror/mode/clike/clike.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/codemirror/mode/clojure/clojure.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/codemirror/mode/coffeescript/coffeescript.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/codemirror/mode/css/css.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/codemirror/mode/diff/diff.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/codemirror/mode/haskell/haskell.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/codemirror/mode/htmlmixed/htmlmixed.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/codemirror/mode/javascript/javascript.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/codemirror/mode/lua/lua.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/codemirror/mode/php/php.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/codemirror/mode/plsql/plsql.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/codemirror/mode/python/python.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/codemirror/mode/r/r.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/codemirror/mode/rst/rst.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/codemirror/mode/ruby/ruby.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/codemirror/mode/scheme/scheme.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/codemirror/mode/smalltalk/smalltalk.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/codemirror/mode/sparql/sparql.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/codemirror/mode/stex/stex.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/codemirror/mode/velocity/velocity.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/codemirror/mode/xml/xml.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/codemirror/mode/xmlpure/xmlpure.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/codemirror/mode/yaml/yaml.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/goto/deck.goto.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/hash/deck.hash.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/menu/deck.menu.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/navigation/deck.navigation.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/scale/deck.scale.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/status/deck.status.js" type="text/javascript"></script>
+    <!-- your custom JS here, including call to initialize deck.js-codemirror -->
+    <script src="js/automate-your-life-with-sh.js" type="text/javascript"></script>
+    <!-- Initialize the deck. -->
+    <script type='text/javascript'>
+      $(function() { $.deck('.slide'); });
+    </script>
+  </body>
+</html>
